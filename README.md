@@ -70,7 +70,7 @@ The program prints the estimated size for each kernel.
 
 ## bench.py
 
-Using `timeit` we mesure the execution time of the kernel (`runTypeFloat` from `typesCost.py`). The kernel is ran multiple times and each measurement is added to an array. 
+Using `timeit` we mesure the execution time of the kernel (`runTypeFloat` from `typesCost.py`). The kernel is run multiple times and each measurement is added to an array. 
 ```python
        start = timer()
        typesCost.runTypeFloat(blocksPerGrid,threadsPerBlock,size,type)
