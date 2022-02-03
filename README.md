@@ -82,3 +82,24 @@ The first value is discarded to avoid caching and JIT interference and the avera
 ```python
     print("Average :", threadsPerBlock, np.average(result[1:]))
 ```
+
+---
+
+## bench.py
+
+This program demonstrates how to allocate shared memory (`cuda.shared.array`) on the device and copy data from global memory (array `toShare` as parameter). 
+
+```python
+    shared_filter=cuda.shared.array(THREAD_BLOCK, dtype=np.int32)
+    #Each thread fill one element of the array
+    shared_filter[cuda.threadIdx.x] = toShare[cuda.threadIdx.x]
+```
+The code is not optimized and doesn't take into account bank conflicts or coalescing. 
+The kernel uses this shared array to perform some computation, avoiding access to global memory. 
+```python
+    if global_id<array.shape[0] :
+        tmp = array[global_id]
+        for i in range(0, THREAD_BLOCK):
+            tmp+=toShare[i]
+        array[global_id] = tmp
+```

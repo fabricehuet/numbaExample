@@ -6,7 +6,6 @@ import sys
 def kernel1D() :
     local_id = cuda.threadIdx.x
     global_id = cuda.grid(1)
-
     if local_id==0:
         print("local_id",local_id, "global_id", global_id)
 
