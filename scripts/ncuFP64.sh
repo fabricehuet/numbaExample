@@ -10,5 +10,7 @@ fi
 
 echo "Collecting Double Precision metrics"
 ncu --target-processes all  --metrics \
-    "smsp__sass_thread_inst_executed_op_dadd_pred_on.sum,smsp__sass_thread_inst_executed_op_dmul_pred_on.sum,smsp__sass_thread_inst_executed_op_dfma_pred_on.sum" \
+    "smsp__sass_thread_inst_executed_op_dadd_pred_on.sum,\
+smsp__sass_thread_inst_executed_op_dmul_pred_on.sum,\
+smsp__sass_thread_inst_executed_op_dfma_pred_on.sum" \
     $@
