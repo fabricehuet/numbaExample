@@ -17,7 +17,7 @@ def kernelWithShared(array, toShare) :
     if global_id<array.shape[0] :
         tmp = array[global_id]
         for i in range(0, THREAD_BLOCK):
-            tmp+=toShare[i]
+            tmp+=shared_filter[i]
         array[global_id] = tmp
 
         
